@@ -1,40 +1,53 @@
 ---
 name: follow-ups-do-dia
-description: Rodar o dia de prospecção na Vynvia — compromissos de hoje e atrasados, retornos para quem não respondeu, primeiros contatos da fila e os contatos esperando desfecho. Use quando o usuário perguntar "o que tenho pra hoje", pedir para rodar os follow-ups, retomar leads ou organizar a agenda de vendas.
+description: Rodar o dia de prospecção na Vynvia — compromissos de hoje e atrasados, triagem de quem está esperando desfecho, retornos para quem não respondeu e primeiros contatos da fila, com um resumo no fim. Use quando o usuário perguntar "o que tenho pra hoje", pedir para rodar os follow-ups, retomar leads ou organizar a agenda de vendas.
 ---
 
 # O dia de prospecção na Vynvia
 
-## Comece pela lista do dia
+## 1. Monte o quadro do dia
 
-Chame `ver_hoje`. Ela traz, no horário de Brasília:
+- `ver_hoje`: compromissos (hoje e atrasados), leads sem primeiro contato e contatos esperando desfecho. Se vier `lista_incompleta`, avise que a conta tem mais do que a lista mostra.
+- `ver_cota`: quantos primeiros contatos e retornos ainda cabem hoje.
 
-- `compromissos`: retornos marcados para hoje ou atrasados, com o lembrete do que foi combinado;
-- `sem_primeiro_contato`: leads que ainda não receberam nada;
-- `esperando_desfecho`: quem foi contatado, já passou a espera e ninguém disse o que aconteceu.
+Resuma em poucas linhas e proponha a ordem: compromissos, depois desfechos, depois primeiros contatos. Diga o que cabe hoje e o que fica para amanhã.
 
-Resuma em poucas linhas e proponha a ordem: compromissos primeiro, depois desfechos, depois primeiros contatos.
+## 2. Compromissos
 
-## Compromissos e retornos
+Para cada um, leia a conversa com `ver_lead` e o lembrete do compromisso. Decida:
 
-1. Para cada lead, leia a conversa com `ver_lead` antes de escrever: a continuação precisa saber o que já foi dito e o que o lead respondeu.
-2. Gere o retorno com `gerar_mensagem` (`objetivo: "follow_up"`). Envie como no primeiro contato: aprovado, um por vez, `proximo_envio` e depois `confirmar_envio`.
-3. Compromisso cumprido: `agendar_follow_up` com `concluir: true`. Novo combinado: `agendar_follow_up` com a data (e o `lembrete`). Combinado desfeito: `cancelar: true`.
+- **Era para retomar a conversa**: gere o retorno (`gerar_mensagem`, `objetivo: "follow_up"`) a partir do que foi combinado.
+- **Já foi resolvido**: `agendar_follow_up` com `concluir: true`.
+- **Mudou a data**: `agendar_follow_up` com a data nova e o `lembrete`.
+- **Não faz mais sentido**: `cancelar: true`.
 
-## Esperando desfecho
+## 3. Triagem de quem está esperando desfecho
 
-Pergunte ao usuário o que aconteceu com cada um e registre com `registrar_desfecho`:
+Sem resposta também é desfecho. Para cada lead da fila, descubra se ele respondeu: olhe a conversa no WhatsApp, se você controla o navegador; senão, pergunte ao usuário (em lote: mostre a lista e peça para ele apontar quem respondeu).
 
-- respondeu → `replied`, com o texto da resposta em `resposta`, nas palavras do lead;
-- não respondeu → `no_reply`;
-- não quer → `not_interested`.
+- **Respondeu**: `registrar_desfecho` com `replied` e o texto em `resposta`, nas palavras do lead. Depois, a continuação.
+- **Respondeu um robô** (ausência, menu): `registrar_mensagem_automatica`. Não conta como resposta.
+- **Não respondeu**: `registrar_desfecho` com `no_reply`. Então veja na conversa (`ver_lead`) quantas mensagens ele já recebeu sem responder:
+  - primeira ou segunda tentativa: gere o retorno, com um ângulo diferente do anterior;
+  - terceira sem resposta: não insista. Diga ao usuário que esse lead encerrou e sugira `descartar_lead` (só descarte se ele concordar).
+- **Disse que não quer**: `not_interested`, e não escreva de novo.
 
-Resposta de robô (ausência, menu) não é desfecho: use `registrar_mensagem_automatica`.
+Nunca marque `no_reply` em quem respondeu depois do último contato.
+
+## 4. Primeiros contatos
+
+Com o que sobrar do limite do dia, pegue os primeiros da fila `sem_primeiro_contato`, priorizando quem tem WhatsApp e gancho na ficha. Gere, revise contra a ficha e mostre.
+
+## 5. Envio
+
+Aprovado, um por vez: `proximo_envio`, envio no WhatsApp, `confirmar_envio`. Respeite os `aguardar_segundos`. Fora do horário de envio (segunda a sexta, 8h às 19h de Brasília), só sai resposta a quem já respondeu.
+
+Se o usuário pediu para você enviar sozinho, você é a última revisão: leia cada mensagem inteira antes de enviar, pare se o WhatsApp pedir login e não envie por fora.
+
+## 6. Resumo do dia
+
+Feche com: quem recebeu retorno, quem recebeu primeiro contato, quem respondeu (e o que pediu), quem encerrou, o que ficou para amanhã e os compromissos marcados. Se alguém pediu para falar depois, confirme que o retorno está agendado.
 
 ## Organizar
 
-Só quando o usuário pedir, nunca por dedução: `marcar_fechado` (fechou negócio), `descartar_lead` (tirar da lista), `favoritar_lead`, `anotar_lead` (detalhe para o próximo contato). Envio registrado por engano: `desfazer_envio` com o id do `historico` do `ver_lead`.
-
-## Envio sem aprovação
-
-Se o usuário pedir para você enviar sozinho, ainda assim revise cada texto antes de enviar, respeite o ritmo do `proximo_envio`, pare se o WhatsApp pedir login e, no fim, diga quem recebeu e quem ficou de fora.
+Só quando o usuário pedir, nunca por dedução: `marcar_fechado`, `descartar_lead`, `favoritar_lead`, `recuperar_lead_apagado`. Detalhe para o próximo contato vai em `anotar_lead`. Envio registrado por engano: `desfazer_envio`, com o id do `historico` do `ver_lead`.

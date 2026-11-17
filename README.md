@@ -6,9 +6,10 @@ Prospecção B2B no Brasil pela sua IA. Com o plugin da Vynvia, o Claude busca e
 
 - **Conector `vynvia`**: o servidor MCP da Vynvia (`https://www.vynvia.com.br/api/mcp`), com login pela sua conta (OAuth).
 - **Skills**:
-  - `prospectar-nicho`: buscar um tipo de empresa numa região, escrever e enviar o primeiro contato;
-  - `follow-ups-do-dia`: compromissos, retornos, primeiros contatos e desfechos do dia;
-  - `responder-lead`: registrar a resposta de um lead e escrever a continuação.
+  - `prospectar-nicho`: escolhe o nicho, busca, prioriza os melhores leads pelo perfil da conta e pelo limite do dia, escreve, revisa e envia o primeiro contato;
+  - `follow-ups-do-dia`: compromissos, triagem de quem está esperando desfecho (respondeu, não respondeu, encerrou), retornos, primeiros contatos e um resumo no fim;
+  - `responder-lead`: registra a resposta, classifica o que o lead quer e escreve a continuação certa para cada caso;
+  - `o-que-esta-funcionando`: balanço da prospecção por nicho e região, com a recomendação da próxima busca.
 
 ## O que você precisa
 
@@ -19,6 +20,7 @@ Uma conta na [Vynvia](https://www.vynvia.com.br) num plano com o MCP (Start ou B
 - "Busque escritórios de contabilidade em Juiz de Fora - MG e me mostre as primeiras mensagens."
 - "O que eu tenho pra hoje na Vynvia?"
 - "A Clínica Sorriso respondeu: 'pode me mandar mais detalhes?'. Como respondo?"
+- "Como está a minha prospecção? Onde eu busco a seguir?"
 
 ## Instalar no Claude Code
 
