@@ -17,7 +17,7 @@ Você opera a Vynvia pelas ferramentas do conector `vynvia`. A Vynvia busca empr
 - O usuário já disse: confirme nicho, cidade e UF.
 - Não disse: chame `sugerir_buscas`, mostre as opções com o porquê e recomende uma, explicando com base no playbook.
 - Antes de buscar, veja com `listar_leads` (`sem_contato`) se já há leads parados desse nicho. Se houver, proponha começar por eles: não gasta busca.
-- `buscar_empresas` gasta 1 busca: só chame depois do "pode buscar". Filtros (`com_whatsapp`, `sem_site`, `sem_rede_social`) ajudam quando a oferta depende disso; avise que pode vir menos empresas.
+- `buscar_empresas` gasta 1 busca: só chame depois do "pode buscar", ou quando o pedido já trouxe a busca (veja "Pedido de ponta a ponta"). Filtros (`com_whatsapp`, `sem_site`, `sem_rede_social`) ajudam quando a oferta depende disso; avise que pode vir menos empresas.
 
 ## 3. Priorize, não trate todos igual
 
@@ -32,20 +32,31 @@ Corte a lista no que cabe hoje. Se cabem 8 primeiros contatos, trabalhe os 8 mel
 ## 4. Escreva e revise
 
 - `gerar_mensagem` gasta 1 mensagem de IA por lead. Gere só para quem vai receber.
-- Antes de mostrar, confira cada texto contra a ficha: o que ele diz da empresa bate com o resumo e o site? Está natural, sem jargão de cadastro (CNAE, razão social, "LTDA")? O primeiro contato não leva link? Se algo falhar, gere de novo com `instrucao` explicando o ajuste.
+- Antes de mostrar ou enviar, confira cada texto contra a ficha e o playbook: o que ele diz da empresa bate com o resumo e o site? A oferta é a que a conta vende? Está natural, sem jargão de cadastro (CNAE, razão social, "LTDA")? O primeiro contato não leva link?
+- A revisão é para erro simples, não para reescrever: corrija só o trecho errado (uma concordância, um nome, uma palavra de cadastro) e mantenha o resto como a Vynvia escreveu. Mensagem que só ficaria boa reescrita: gere de novo uma vez com `instrucao` explicando o ajuste, ou pule o lead.
 - Se o aplicativo mostrar o cartão de aprovação da Vynvia, não repita o texto embaixo dele. Sem cartão, mostre o texto.
 - Ajustes do usuário ("mais curta", "sem falar de preço") vão em `instrucao`. Nunca ponha link, telefone ou e-mail ali.
 
 ## 5. Envie
 
-- Só o que o usuário aprovou, a menos que ele tenha pedido explicitamente para você enviar sozinho.
+- Só o que o usuário aprovou: ele aprova cada texto ou, no pedido de ponta a ponta, o lote que pediu.
 - Um por vez: `proximo_envio` libera e devolve o link do WhatsApp. Se responder para aguardar, espere os `aguardar_segundos` e chame de novo. Não troque de lead para furar a espera.
 - Depois que a mensagem saiu de verdade, `confirmar_envio` com o texto exato. Número sem WhatsApp: `desistir_envio`.
 - Fora do WhatsApp a Vynvia não envia: gere com o `canal` certo, o usuário envia e você registra com `registrar_envio`.
 
+## Pedido de ponta a ponta
+
+Quando o usuário pede o trabalho inteiro de uma vez (por exemplo, "busque 30 empresas de tal nicho em tal cidade e mande mensagem"):
+
+- Vale só para aquele lote. O que ele não pediu (outro nicho, outra região, mais uma busca) pede nova confirmação.
+- Dentro do lote, não pare para pedir aprovação de cada texto nem confirme de novo o que ele já disse.
+- Confira o perfil na ficha antes de `gerar_mensagem`. Empresa fora do cliente ideal não recebe mensagem: pule sem gerar e diga no resumo.
+- Revise cada mensagem como no passo 4 e envie uma por vez no ritmo do `proximo_envio`. O ritmo não muda.
+- Sem navegador você não envia: entregue os links.
+
 ## 6. Feche com um resumo
 
-Diga quantos receberam, quantos ficaram para depois e por quê, quanto de cota sobrou e qual o próximo passo (por exemplo, voltar em 3 dias para os retornos).
+Diga quantos receberam, quais você pulou e por quê, quantos ficaram para depois, quanto de cota sobrou e qual o próximo passo (por exemplo, voltar em 3 dias para os retornos).
 
 ## Regras
 
