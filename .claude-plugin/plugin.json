@@ -1,0 +1,27 @@
+{
+  "name": "vynvia",
+  "displayName": "Vynvia",
+  "version": "1.0.0",
+  "description": "Prospecção B2B no Brasil pela sua IA: busca empresas na região que você quiser, escreve a abordagem, envia pelo WhatsApp no ritmo seguro e acompanha follow-ups e respostas, com tudo registrado na Vynvia.",
+  "author": {
+    "name": "Vynvia",
+    "email": "suporte@vynvia.com.br",
+    "url": "https://www.vynvia.com.br"
+  },
+  "homepage": "https://www.vynvia.com.br/mcp",
+  "license": "MIT",
+  "keywords": [
+    "prospecção",
+    "vendas",
+    "b2b",
+    "whatsapp",
+    "leads",
+    "brasil"
+  ],
+  "icon": "./logo.svg",
+  "documentationUrl": "https://www.vynvia.com.br/mcp",
+  "supportUrl": "mailto:suporte@vynvia.com.br",
+  "privacyPolicyUrl": "https://www.vynvia.com.br/privacidade",
+  "termsOfServiceUrl": "https://www.vynvia.com.br/termos",
+  "repository": "https://github.com/Vynvia/vynvia-plugin"
+}

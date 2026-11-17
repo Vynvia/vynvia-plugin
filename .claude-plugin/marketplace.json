@@ -1,0 +1,15 @@
+{
+  "name": "vynvia",
+  "description": "Plugin oficial da Vynvia: prospecção B2B no Brasil pela sua IA.",
+  "owner": {
+    "name": "Vynvia",
+    "email": "suporte@vynvia.com.br"
+  },
+  "plugins": [
+    {
+      "name": "vynvia",
+      "source": "./",
+      "description": "Prospecção B2B no Brasil pela sua IA, com envio pelo WhatsApp e tudo registrado na Vynvia."
+    }
+  ]
+}

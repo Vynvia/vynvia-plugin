@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.2" baseProfile="tiny-ps" viewBox="0 0 64 64">
+  <title>Vynvia</title>
+  <defs>
+    <radialGradient id="body" cx="56%" cy="34%" r="72%">
+      <stop offset="0%" stop-color="#ffc56b"/>
+      <stop offset="45%" stop-color="#f59e0b"/>
+      <stop offset="80%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </radialGradient>
+    <radialGradient id="highlight" cx="70%" cy="24%" r="28%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="45%" stop-color="#ffe9c8" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffe9c8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" fill="#ffffff"/>
+  <circle cx="32" cy="32" r="24" fill="url(#body)"/>
+  <ellipse cx="40.9" cy="21.3" rx="8" ry="6.2" fill="url(#highlight)"/>
+</svg>
