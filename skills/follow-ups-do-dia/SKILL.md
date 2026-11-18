@@ -1,6 +1,6 @@
 ---
 name: follow-ups-do-dia
-description: Rodar o dia de prospecção na Vynvia — compromissos de hoje e atrasados, triagem de quem está esperando desfecho, retornos para quem não respondeu e primeiros contatos da fila, com um resumo no fim. Use quando o usuário perguntar "o que tenho pra hoje", pedir para rodar os follow-ups, retomar leads ou organizar a agenda de vendas.
+description: Rodar o dia de prospecção na Vynvia — compromissos de hoje e atrasados, triagem de quem está esperando desfecho, retornos para quem não respondeu, primeiros contatos da fila e, quando o usuário pedir, a reativação de quem ficou sem responder, com um resumo no fim. Use quando o usuário perguntar "o que tenho pra hoje", pedir para rodar os follow-ups, retomar ou reativar leads, ou organizar a agenda de vendas.
 ---
 
 # O dia de prospecção na Vynvia
@@ -28,8 +28,10 @@ Sem resposta também é desfecho. Para cada lead da fila, descubra se ele respon
 - **Respondeu**: `registrar_desfecho` com `replied` e o texto em `resposta`, nas palavras do lead. Depois, a continuação.
 - **Respondeu um robô** (ausência, menu): `registrar_mensagem_automatica`. Não conta como resposta.
 - **Não respondeu**: `registrar_desfecho` com `no_reply`. Então veja na conversa (`ver_lead`) quantas mensagens ele já recebeu sem responder:
-  - primeira ou segunda tentativa: gere o retorno, com um ângulo diferente do anterior;
-  - terceira sem resposta: não insista. Diga ao usuário que esse lead encerrou e sugira `descartar_lead` (só descarte se ele concordar).
+  - recebeu só a primeira: gere o retorno, com um ângulo diferente do anterior;
+  - já recebeu o retorno e não respondeu: não insista. A Vynvia encerra esse lead sozinha: ele sai da lista do dia e passa para a reativação (seção 6). O padrão é parar na segunda mensagem; se a conta escolheu três tentativas, o segundo retorno ainda cabe.
+
+Quem recebeu a primeira mensagem e ficou duas semanas sem o retorno também sai da lista do dia e vai para a reativação. Não precisa descartar ninguém por isso.
 - **Disse que não quer**: `not_interested`, e não escreva de novo.
 
 Nunca marque `no_reply` em quem respondeu depois do último contato.
@@ -44,9 +46,19 @@ Aprovado, um por vez: `proximo_envio`, envio no WhatsApp, `confirmar_envio`. Res
 
 Se o usuário pediu para você enviar sozinho, você é a última revisão: leia cada mensagem inteira antes de enviar, pare se o WhatsApp pedir login e não envie por fora.
 
-## 6. Resumo do dia
+## 6. Reativação (só quando o usuário pedir)
 
-Feche com: quem recebeu retorno, quem recebeu primeiro contato, quem respondeu (e o que pediu), quem encerrou, o que ficou para amanhã e os compromissos marcados. Se alguém pediu para falar depois, confirme que o retorno está agendado.
+Reativar é mandar uma nova mensagem a quem recebeu as anteriores, não respondeu e saiu da lista do dia. Nunca faça por conta própria: espere o usuário pedir ("quem eu posso reativar?", "reativa os melhores").
+
+- `ver_reativar`: traz o total, os `sugeridos` (melhor nota, com WhatsApp) e as `prontas` (já têm a mensagem escrita). Se vier `lista_incompleta`, avise que há mais do que a lista mostra.
+- **Prontas**: o texto vem no campo `mensagem`. Confira contra a ficha (`ver_lead`) e envie. Não gere de novo.
+- **Sugeridos**: `gerar_mensagem` com `objetivo: "reactivation"`. Leia antes a conversa em `ver_lead` e peça um ângulo diferente das mensagens que ele já recebeu.
+- É uma mensagem por lead: depois do envio ele sai da lista e não volta.
+- O envio é o da seção 5 e conta como retorno. Veja em `ver_cota` quantos retornos ainda cabem hoje e não passe disso.
+
+## 7. Resumo do dia
+
+Feche com: quem recebeu retorno, quem recebeu primeiro contato, quem foi reativado, quem respondeu (e o que pediu), quem encerrou, o que ficou para amanhã e os compromissos marcados. Se alguém pediu para falar depois, confirme que o retorno está agendado.
 
 ## Organizar
 
