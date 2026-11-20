@@ -13,7 +13,7 @@ Prospecção B2B no Brasil pela sua IA. Com o plugin da Vynvia, o Claude busca e
 
 ## O que você precisa
 
-Uma conta na [Vynvia](https://www.vynvia.com.br) num plano com o MCP (Start ou Business). Na primeira chamada, o Claude abre a tela de autorização da Vynvia para você permitir o acesso.
+Uma conta na [Vynvia](https://www.vynvia.com.br), em qualquer plano (Free, Start ou Business). Na primeira chamada, o Claude abre a tela de autorização da Vynvia para você permitir o acesso.
 
 ## Exemplos
 
@@ -39,7 +39,7 @@ O plugin não guarda dados: ele liga o Claude ao servidor da Vynvia, que trata o
 - **Retenção**: enquanto a conta estiver ativa, e pelo prazo previsto na política depois do encerramento.
 - **Contato**: privacidade@vynvia.com.br.
 
-A IA conectada nunca recebe o telefone dos leads: o envio pelo WhatsApp sai por um link que a Vynvia monta, dentro do limite diário da conta.
+O telefone dos leads não aparece nas listas nem na ficha: o número vai só no link que abre a conversa no WhatsApp, que a Vynvia monta dentro do limite diário da conta.
 
 ## Suporte
 
