@@ -1,6 +1,6 @@
 # Vynvia para Claude
 
-Prospecção B2B no Brasil pela sua IA. Com o plugin da Vynvia, o Claude busca empresas na região que você quiser, escreve a abordagem com os dados de cada uma, envia pelo WhatsApp no ritmo seguro da sua conta e acompanha follow-ups e respostas. Tudo fica registrado na Vynvia.
+Prospecção B2B no Brasil pela sua IA. Com o plugin da Vynvia, o Claude busca empresas na região que você quiser, escreve a abordagem com os dados de cada uma, envia pelo WhatsApp uma mensagem por vez, em ritmo variado e dentro do limite diário da sua conta, e acompanha follow-ups e respostas. Tudo fica registrado na Vynvia.
 
 ## O que vem no plugin
 
@@ -34,7 +34,7 @@ Uma conta na [Vynvia](https://www.vynvia.com.br), em qualquer plano (Free, Start
 O plugin não guarda dados: ele liga o Claude ao servidor da Vynvia, que trata os dados conforme a [Política de Privacidade](https://www.vynvia.com.br/privacidade). Em resumo:
 
 - **Coleta**: os dados da sua conta e os das empresas que você busca (dados públicos de pessoas jurídicas).
-- **Uso e armazenamento**: para buscar, escrever e registrar a prospecção na sua conta, em servidores no Brasil.
+- **Uso e armazenamento**: para buscar, escrever e registrar a prospecção na sua conta. A aplicação e o banco de dados ficam no Brasil (região de São Paulo); alguns provedores, como os de inteligência artificial, tratam dados fora do país, como descreve a política de privacidade.
 - **Compartilhamento**: com os provedores necessários ao serviço (hospedagem, banco de dados, modelos de IA), sem venda de dados.
 - **Retenção**: enquanto a conta estiver ativa, e pelo prazo previsto na política depois do encerramento.
 - **Contato**: privacidade@vynvia.com.br.

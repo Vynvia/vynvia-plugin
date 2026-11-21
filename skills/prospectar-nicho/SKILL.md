@@ -1,6 +1,6 @@
 ---
 name: prospectar-nicho
-description: Prospectar um tipo de empresa numa região pela Vynvia — escolher o nicho, buscar as empresas, priorizar as melhores, escrever o primeiro contato de cada uma e enviar pelo WhatsApp no ritmo seguro. Use quando o usuário pedir para achar clientes, buscar empresas, prospectar um nicho ou montar uma lista de leads numa cidade, ou quando não souber que nicho buscar.
+description: Prospectar um tipo de empresa numa região pela Vynvia — escolher o nicho, buscar as empresas, priorizar as melhores, escrever o primeiro contato de cada uma e enviar pelo WhatsApp uma mensagem por vez, em ritmo variado. Use quando o usuário pedir para achar clientes, buscar empresas, prospectar um nicho ou montar uma lista de leads numa cidade, ou quando não souber que nicho buscar.
 ---
 
 # Prospectar um nicho com a Vynvia
