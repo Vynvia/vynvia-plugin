@@ -39,7 +39,7 @@ O plugin não guarda dados: ele liga o Claude ao servidor da Vynvia, que trata o
 - **Retenção**: enquanto a conta estiver ativa, e pelo prazo previsto na política depois do encerramento.
 - **Contato**: privacidade@vynvia.com.br.
 
-O telefone dos leads não aparece nas listas nem na ficha: o número vai só no link que abre a conversa no WhatsApp, que a Vynvia monta dentro do limite diário da conta.
+Os campos de telefone dos leads não vão para as listas nem para a ficha (só a indicação de que há telefone), e e-mail, site ou Instagram em que a Vynvia encontre um número de telefone saem omitidos. O envio pelo WhatsApp sai pelo link que a Vynvia monta, dentro do limite diário da conta.
 
 ## Suporte
 

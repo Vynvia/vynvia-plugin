@@ -8,9 +8,9 @@ description: Rodar o dia de prospecção na Vynvia — compromissos de hoje e at
 ## 1. Monte o quadro do dia
 
 - `ver_hoje`: compromissos (hoje e atrasados), leads sem primeiro contato e contatos esperando desfecho. Se vier `lista_incompleta`, avise que a conta tem mais do que a lista mostra.
-- `ver_cota`: quantos primeiros contatos e retornos ainda cabem hoje, e se a `janela_de_envio` está aberta (segunda a sexta, 8h às 19h de Brasília). Fechada, avise o usuário antes de gerar mensagem.
+- `ver_cota`: o limite diário de primeiros contatos e de retornos (`envios_por_dia_pelo_mcp`) e se a `janela_de_envio` está aberta (segunda a sexta, 8h às 19h de Brasília). Fechada, avise o usuário antes de gerar mensagem. O limite não desconta o que já saiu hoje: isso vem em `ritmo`, no resultado do `proximo_envio`.
 
-Resuma em poucas linhas e proponha a ordem: compromissos, depois desfechos, depois primeiros contatos. Diga o que cabe hoje e o que fica para amanhã. Se o aplicativo exibiu o cartão da Vynvia com a lista ou a ficha, não repita o conteúdo.
+Resuma em poucas linhas e proponha a ordem: compromissos, depois desfechos, depois primeiros contatos. Diga o que cabe hoje (no máximo o limite diário) e o que fica para amanhã. Se o aplicativo exibiu o cartão da Vynvia com a lista ou a ficha, não repita o conteúdo.
 
 ## 2. Compromissos
 
@@ -56,11 +56,11 @@ Reativar é mandar uma nova mensagem a quem recebeu as anteriores, não responde
 - **Prontas**: o texto vem no campo `mensagem`. Confira contra a ficha (`ver_lead`) e envie. Não gere de novo.
 - **Sugeridos**: `gerar_mensagem` com `objetivo: "reactivation"`. Leia antes a conversa em `ver_lead` e peça um ângulo diferente das mensagens que ele já recebeu.
 - É uma mensagem por lead: depois do envio ele sai da lista e não volta.
-- O envio é o da seção 5 e conta como retorno. Veja em `ver_cota` quantos retornos ainda cabem hoje e não passe disso.
+- O envio é o da seção 5 e conta como retorno. Não passe do limite diário de retornos do `ver_cota`, contando os que já saíram hoje (`ritmo`, no resultado do `proximo_envio`).
 
 ## 7. Resumo do dia
 
-Chame `ver_resumo_do_dia` e não conte de cabeça. Feche com: quem recebeu retorno, quem recebeu primeiro contato, quem foi reativado, quem respondeu (e o que pediu), quem encerrou, o que ficou para amanhã e os compromissos marcados. Se alguém pediu para falar depois, confirme que o retorno está agendado. Se algum envio trouxe `texto_reescrito`, diga quais mensagens você reescreveu.
+Chame `ver_resumo_do_dia` para os números do dia na conta, desde a meia-noite de Brasília e com os envios do painel: empresas contatadas pelo WhatsApp e por outros canais, quantas responderam (com os primeiros nomes), retornos marcados e quantas foram marcadas sem resposta. Não conte esses números de cabeça. Se o aplicativo exibiu o cartão do resumo, não repita o que ele mostra. Complete com o que você fez nesta conversa: quem recebeu retorno, primeiro contato ou reativação, o que pediu cada lead que respondeu, quem encerrou e o que ficou para amanhã. Se alguém pediu para falar depois, confirme que o retorno está agendado. Se algum envio trouxe `texto_reescrito`, diga quais mensagens você reescreveu.
 
 ## Organizar
 

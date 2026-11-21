@@ -10,7 +10,7 @@ Você opera a Vynvia pelas ferramentas do conector `vynvia`. A Vynvia busca empr
 ## 1. Leia a conta antes de agir
 
 - `ver_playbook`: o que a conta vende, para quem, o tom e as regras. É o critério para escolher nicho e priorizar leads. Se o perfil vier incompleto, diga ao usuário o que falta antes de gastar cota.
-- `ver_cota`: quantas buscas e mensagens de IA restam e quantos primeiros contatos cabem hoje (`envios_por_dia_pelo_mcp`). Planeje o trabalho por esses números.
+- `ver_cota`: quantas buscas e mensagens de IA restam e o limite diário de primeiros contatos (`envios_por_dia_pelo_mcp`). O limite não desconta o que já saiu hoje: isso vem em `ritmo`, no resultado do `proximo_envio`. Planeje o trabalho por esses números.
 - No mesmo `ver_cota`, veja `janela_de_envio` antes de gerar o lote: o envio só sai de segunda a sexta, das 8h às 19h de Brasília. Fechada, avise o usuário antes de gastar mensagem.
 
 ## 2. Escolha o nicho
@@ -28,7 +28,7 @@ Com a lista em mãos, monte a ordem e explique em uma linha por lead:
 2. **Canal**: com WhatsApp primeiro. Sem WhatsApp, veja se tem e-mail ou Instagram e proponha esse canal em vez de descartar. Lead com `whatsapp_recusado` não recebe mensagem de WhatsApp: outro canal ou pule.
 3. **Gancho**: abra a ficha (`ver_lead`) dos melhores e use `o_que_o_site_usa` e `registro_na_receita` para decidir o ângulo. Lead sem nenhum gancho vai para o fim.
 
-Corte a lista no que cabe hoje. Se cabem 8 primeiros contatos, trabalhe os 8 melhores e diga quantos ficam para o próximo dia.
+Corte a lista no que cabe hoje (no máximo o limite diário). Se cabem 8 primeiros contatos, trabalhe os 8 melhores e diga quantos ficam para o próximo dia.
 
 ## 4. Escreva e revise
 

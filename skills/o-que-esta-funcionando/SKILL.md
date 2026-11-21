@@ -11,13 +11,13 @@ O objetivo é dar ao usuário uma leitura honesta dos resultados e uma recomenda
 
 - `ver_playbook`: o que a conta vende e para quem (o critério do que é um bom resultado).
 - `ver_cota`: quanto do plano já foi usado no período.
-- `listar_leads` com `situacao: "contatados"` (`limite` até 50) e com `situacao: "sem_contato"`. Se a resposta trouxer `tem_mais`, a página seguinte vem com `pagina`.
+- `listar_leads` com `situacao: "contatados"` (`limite` até 50), com `situacao: "sem_contato"` e com `situacao: "todos"`. Os fechados não vêm em `contatados` nem em `sem_contato`: conte-os na lista `todos` (os de `situacao: "won"`). Se a resposta trouxer `tem_mais`, a página seguinte vem com `pagina`.
 - `ver_hoje`: quantos estão esperando desfecho e quantos compromissos há.
 - Para os que responderam ou fecharam, abra a ficha (`ver_lead`) e leia a conversa. Não abra todas as fichas: escolha as que explicam o resultado.
 
 ## 2. Leia os resultados
 
-Agrupe os contatados por **segmento** e por **cidade** e conte, em cada grupo: quantos receberam contato, quantos responderam, quantos pediram para falar depois, quantos recusaram, quantos fecharam.
+Agrupe os contatados e os fechados por **segmento** e por **cidade** e conte, em cada grupo: quantos receberam contato, quantos responderam, quantos pediram para falar depois, quantos recusaram, quantos fecharam.
 
 Procure o que os que responderam têm em comum: porte, se têm site, o gancho usado na mensagem, o canal.
 
@@ -25,7 +25,7 @@ Olhe também o que está parado: leads sem primeiro contato há dias, contatos s
 
 ## 3. Seja honesto sobre o tamanho da amostra
 
-- A lista vem em páginas de até 50 leads: se você não leu todas (ainda havia `tem_mais`), diga que a análise cobre os mais recentes.
+- A lista vem em páginas de até 50 leads: se você não leu todas (ainda havia `tem_mais`, ou a resposta avisou que só os mais recentes foram lidos ou que há mais além da última página), diga que a análise cobre os mais recentes.
 - Com poucos contatos por grupo (menos de 10), não fale em taxa: diga "3 de 7 responderam" e avise que é pouco para concluir.
 - Contato sem desfecho não é "sem resposta": se a fila de desfecho for grande, o primeiro conselho é fechar essa fila, porque sem ela os números enganam.
 
