@@ -42,7 +42,7 @@ Com o que sobrar do limite do dia, pegue os primeiros da fila `sem_primeiro_cont
 
 ## 5. Envio
 
-Aprovado, um por vez: `proximo_envio`, envio no WhatsApp, `confirmar_envio`. Respeite os `aguardar_segundos`. Fora do horário de envio (segunda a sexta, 8h às 19h de Brasília), só sai resposta a quem já respondeu.
+Aprovado, um por vez: `proximo_envio`, envio no WhatsApp, `confirmar_envio`. Respeite os `aguardar_segundos`. Fora do horário de envio (segunda a sexta, 8h às 19h de Brasília), só sai resposta a quem respondeu depois da sua última mensagem, com a resposta registrada.
 
 Aprovado, mas o envio não pode sair agora (janela fechada, espera longa): guarde cada mensagem com `guardar_na_fila`. Para enviar o que está guardado, `proximo_da_fila`, uma por vez, com `confirmar_envio` depois de cada uma. `tirar_da_fila` só a pedido do usuário.
 
