@@ -9,7 +9,9 @@ description: Responder um lead que respondeu a uma abordagem da Vynvia — regis
 
 Para achar o lead, `listar_leads` com `busca` (parte do nome da empresa).
 
-`registrar_desfecho` com `desfecho: "replied"` e a resposta em `resposta`, com as palavras do lead (até 600 caracteres). Não resuma nem invente. Se a Vynvia recusar por parecer mensagem automática e o usuário garantir que foi uma pessoa, repita com `escrita_por_pessoa: true`. Se foi mesmo um robô, use `registrar_mensagem_automatica` e pare aqui.
+`registrar_desfecho` com `desfecho: "replied"` e a resposta em `resposta`, com as palavras do lead (até 600 caracteres). Não resuma nem invente. Se a Vynvia recusar por parecer mensagem automática e o usuário garantir que foi uma pessoa, repita com `escrita_por_pessoa: true`. Se foi mesmo um robô (menu, saudação de ausência), use `registrar_mensagem_automatica` e pare aqui.
+
+Recusa explícita escrita pelo assistente da empresa ("não temos interesse", "pode nos tirar da lista"), mesmo fora do horário de atendimento humano, vale como recusa: vá direto ao caso de recusa abaixo.
 
 ## 2. Leia o contexto
 
@@ -27,7 +29,7 @@ Para achar o lead, `listar_leads` com `busca` (parte do nome da empresa).
 | **Não é a pessoa certa** | Agradeça, pergunte quem cuida do assunto e anote com `anotar_lead` o nome ou o setor que ele indicar. |
 | **Pediu material, proposta ou e-mail** | Diga ao usuário o que o lead pediu: quem manda é o usuário. Registre o envio com `registrar_envio` depois que ele confirmar. |
 | **Objeção** ("já tenho fornecedor", "não preciso") | Uma resposta só, reconhecendo o que ele disse e deixando a porta aberta. Sem rebater ponto a ponto. |
-| **Recusa clara ou pedido para parar** | Agradeça em uma linha, registre `not_interested` e não escreva de novo. |
+| **Recusa clara ou pedido para parar** | Se for agradecer, envie e confirme o agradecimento (uma linha) ANTES de registrar: depois de `not_interested` a Vynvia não libera mais envio. Sem agradecer, `registrar_desfecho` com `not_interested` e a fala dele em `resposta`, numa chamada só. Não escreva de novo. |
 
 Na dúvida entre dois casos, escolha o mais contido.
 
@@ -35,7 +37,8 @@ Na dúvida entre dois casos, escolha o mais contido.
 
 - `gerar_mensagem` com `objetivo: "follow_up"`: a Vynvia escreve a partir da resposta registrada. Passe o caminho escolhido em `instrucao` (por exemplo, "ele só cumprimentou: uma pergunta de descoberta, sem explicar o produto").
 - Confira: a mensagem responde ao que ele perguntou? Está no tom do playbook? Não promete o que a conta não oferece?
-- Mostre ao usuário, dizendo em uma linha como você classificou a resposta. Envie só depois do ok, pelo `proximo_envio` e `confirmar_envio`.
+- Mostre ao usuário, dizendo em uma linha como você classificou a resposta. Envie só depois do ok, pelo `proximo_envio` e `confirmar_envio` (se confirmar depois, mande em `enviado_em` a hora que o WhatsApp mostra). Depois de responder a quem respondeu, a vez é do lead: aguarde a resposta dele.
+- Se você controla o navegador, use uma aba só do WhatsApp Web: abra cada `link_whatsapp_web` na mesma aba, nunca uma aba nova por envio (duas abas do WhatsApp Web se derrubam).
 
 ## Cuidados
 
